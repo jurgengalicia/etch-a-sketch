@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+
+.grid-container{
+    display: flex;
+    border: 1px solid red;
+    width: 325px;
+    flex-wrap: wrap;
+}
+.cell{
+    border: 1px solid black;
+    width: 6.25%;
+}
+
+.colored-cell{
+    background-color: yellow;
+}
