@@ -1,4 +1,5 @@
 let gridContainer = document.querySelector('.grid-container');
+let colorWheel = document.querySelector('.palette-button');
 
 
 function createGrid(){
@@ -14,9 +15,21 @@ function changeCellColor(){
     this.classList.add("colored-cell")
 }
 
+function clearCellColor(cell){
+    cell.classList.remove("colored-cell")
+}
+
+function changeInk(e){
+    cells.forEach(cell =>{
+        clearCellColor(cell);
+    })
+}
+
 createGrid();
 
 let cells = document.querySelectorAll('.cell');
+
+colorWheel.addEventListener('change',changeInk)
 
 cells.forEach(cell =>{
     cell.addEventListener('mouseover',changeCellColor)
