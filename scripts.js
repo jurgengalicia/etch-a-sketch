@@ -14,8 +14,6 @@ function changeCellColor(){
     this.classList.add("colored-cell")
 }
 
-
-
 createGrid();
 
 let cells = document.querySelectorAll('.cell');
