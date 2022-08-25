@@ -1,5 +1,6 @@
 let gridContainer = document.querySelector('.grid-container');
 let colorWheel = document.querySelector('.palette-button');
+let rootVars = document.querySelector(':root');
 
 
 function createGrid(){
@@ -23,6 +24,7 @@ function changeInk(e){
     cells.forEach(cell =>{
         clearCellColor(cell);
     })
+    rootVars.style.setProperty("--cell-color",e.target.value);
 }
 
 createGrid();

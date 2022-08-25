@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --cell-color: black;
+  }
+
 
 .grid-container{
     display: flex;
@@ -15,5 +19,5 @@
 }
 
 .colored-cell{
-    background-color: yellow;
+    background-color: var(--cell-color);
 }
