@@ -1,6 +1,12 @@
 let gridContainer = document.querySelector('.grid-container');
 let colorWheel = document.querySelector('.palette-button');
-let rootVars = document.querySelector(':root');
+let rootVars = document.querySelector(':root');``
+
+let rainbowSwitch = false;
+let gradientSwitch = false;
+
+let rainbowList = ["red","orange","yellow","green","blue","indigo","violet"]
+
 
 
 function createGrid(){
@@ -26,10 +32,14 @@ function clearGrid(){
     })
 }
 
-function changeInk(e){
+function toggleRainbow(){
     cells.forEach(cell =>{
-        clearCellColor(cell);
+        clearCellColor(cell)
     })
+}
+
+function changeInk(e){
+    clearGrid();
     rootVars.style.setProperty("--cell-color",e.target.value);
 }
 
