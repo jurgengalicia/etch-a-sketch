@@ -20,6 +20,12 @@ function clearCellColor(cell){
     cell.classList.remove("colored-cell")
 }
 
+function clearGrid(){
+    cells.forEach(cell =>{
+        clearCellColor(cell)
+    })
+}
+
 function changeInk(e){
     cells.forEach(cell =>{
         clearCellColor(cell);
