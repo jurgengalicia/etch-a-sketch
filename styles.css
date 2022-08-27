@@ -4,18 +4,22 @@
 
 :root {
     --cell-color: black;
+    --cell-border: 1px solid black;
+    --cell-size: 6.25%;
   }
 
 
 .grid-container{
     display: flex;
-    border: 1px solid red;
-    width: 325px;
+    
+    width: 800px;
+    height: 800px;
     flex-wrap: wrap;
 }
 .cell{
-    border: 1px solid black;
-    width: 6.25%;
+    border: var(--cell-border);
+    width: var(--cell-size);
+    height: var(--cell-size);
 }
 
 .colored-cell{

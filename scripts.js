@@ -1,6 +1,10 @@
+
+
 let gridContainer = document.querySelector('.grid-container');
 let colorWheel = document.querySelector('.palette-button');
-let rootVars = document.querySelector(':root');``
+let rootVars = document.querySelector(':root');
+let slider = document.querySelector('.slider');
+let cells = "";
 
 let rainbowSwitch = false;
 let gradientSwitch = false;
@@ -9,13 +13,36 @@ let rainbowList = ["red","orange","yellow","green","blue","indigo","violet"]
 
 
 
-function createGrid(){
-    for(let x = 0; x <= 16*16-1; x++){
+function createGrid(side=16){
+    for(let x = 0; x <= side*side-1; x++){
         let cell = document.createElement('div');
         cell.classList.add("cell");
-        cell.textContent = ".";
+        cell.textContent = "";
         gridContainer.appendChild(cell);
+        cell.addEventListener('mouseover',changeCellColor)
     }
+    cells = document.querySelectorAll('.cell');
+}
+
+function updateGrid(updateCallback){
+    cells.forEach(cell =>{
+        updateCallback(cell)
+    })
+}
+
+function clearGrid(){
+    updateGrid(clearCellColor)
+}
+
+function recreateGrid(e){
+    gridContainer.childNodes.forEach(child => child.remove())
+
+    while(gridContainer.firstChild) gridContainer.removeChild(gridContainer.lastChild)
+
+    let newSize = e.target.value;
+    rootVars.style.setProperty("--cell-size",`${100/newSize}%`);
+    createGrid(newSize);
+    
 }
 
 function changeCellColor(){
@@ -26,16 +53,8 @@ function clearCellColor(cell){
     cell.classList.remove("colored-cell")
 }
 
-function clearGrid(){
-    cells.forEach(cell =>{
-        clearCellColor(cell)
-    })
-}
-
 function toggleRainbow(){
-    cells.forEach(cell =>{
-        clearCellColor(cell)
-    })
+    clearGrid();
 }
 
 function changeInk(e){
@@ -45,10 +64,8 @@ function changeInk(e){
 
 createGrid();
 
-let cells = document.querySelectorAll('.cell');
+
 
 colorWheel.addEventListener('change',changeInk)
+slider.addEventListener('change',recreateGrid)
 
-cells.forEach(cell =>{
-    cell.addEventListener('mouseover',changeCellColor)
-})
