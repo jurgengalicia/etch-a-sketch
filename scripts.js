@@ -17,10 +17,12 @@ let rainbowList = ["red","orange","yellow","green","blue","indigo","violet"]
 
 
 function toggleGrid(){
-    if(gridVisible){
+    console.log(`${gridVisible} gridvisible`)
+    console.log(`${gridLock} gridlock`)
+    if(gridVisible && !gridLock){
         gridVisible = false;
         rootVars.style.setProperty("--cell-border",`0px`);
-    }else{
+    }else if(!gridLock){
         gridVisible = true;
         rootVars.style.setProperty("--cell-border",`1px solid black`);
     }
@@ -52,6 +54,10 @@ function recreateGrid(e){
 
     let newSize = e.target.value;
     slideNum.textContent = newSize;
+
+    if(newSize > 60 && gridVisible) toggleGrid();
+    gridLock = newSize > 60 ? true : false;
+
     rootVars.style.setProperty("--cell-size",`${100/newSize}%`);
     createGrid(newSize);
     
