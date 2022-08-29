@@ -4,14 +4,25 @@ let gridContainer = document.querySelector('.grid-container');
 let colorWheel = document.querySelector('.palette-button');
 let rootVars = document.querySelector(':root');
 let slider = document.querySelector('.slider');
+let rainbowButton = document.querySelector('.rainbow-button');
 let cells = "";
 
+let gridVisible = true;
 let rainbowSwitch = false;
 let gradientSwitch = false;
 
 let rainbowList = ["red","orange","yellow","green","blue","indigo","violet"]
 
 
+function toggleGrid(){
+    if(gridVisible){
+        gridVisible = false;
+        rootVars.style.setProperty("--cell-border",`0px`);
+    }else{
+        gridVisible = true;
+        rootVars.style.setProperty("--cell-border",`1px solid black`);
+    }
+}
 
 function createGrid(side=16){
     for(let x = 0; x <= side*side-1; x++){
@@ -35,8 +46,6 @@ function clearGrid(){
 }
 
 function recreateGrid(e){
-    gridContainer.childNodes.forEach(child => child.remove())
-
     while(gridContainer.firstChild) gridContainer.removeChild(gridContainer.lastChild)
 
     let newSize = e.target.value;
