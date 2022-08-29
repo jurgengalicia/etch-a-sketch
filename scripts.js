@@ -5,9 +5,11 @@ let colorWheel = document.querySelector('.palette-button');
 let rootVars = document.querySelector(':root');
 let slider = document.querySelector('.slider');
 let rainbowButton = document.querySelector('.rainbow-button');
+let slideNum = document.querySelector('.slide-count');
 let cells = "";
 
 let gridVisible = true;
+let gridLock = false;
 let rainbowSwitch = false;
 let gradientSwitch = false;
 
@@ -49,6 +51,7 @@ function recreateGrid(e){
     while(gridContainer.firstChild) gridContainer.removeChild(gridContainer.lastChild)
 
     let newSize = e.target.value;
+    slideNum.textContent = newSize;
     rootVars.style.setProperty("--cell-size",`${100/newSize}%`);
     createGrid(newSize);
     
