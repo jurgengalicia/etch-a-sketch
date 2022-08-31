@@ -86,4 +86,3 @@ createGrid();
 
 colorWheel.addEventListener('change',changeInk)
 slider.addEventListener('change',recreateGrid)
-
