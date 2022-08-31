@@ -73,6 +73,11 @@ function clearCellColor(cell){
 
 function toggleRainbow(){
     clearGrid();
+    if(!rainbowSwitch)
+        rainbowSwitch = true;
+    else
+        rainbowSwitch = false;
+    
 }
 
 function changeInk(e){
