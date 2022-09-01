@@ -68,7 +68,7 @@ function changeCellColor(){
 }
 
 function clearCellColor(cell){
-    cell.classList.remove("colored-cell")
+    cell.classList.remove("colored-cell");
 }
 
 function toggleRainbow(){
