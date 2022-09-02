@@ -64,7 +64,7 @@ function recreateGrid(e){
 }
 
 function changeCellColor(){
-    this.classList.add("colored-cell")
+    this.classList.add("colored-cell");
 }
 
 function clearCellColor(cell){
