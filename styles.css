@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
@@ -20,6 +22,7 @@
     border: var(--cell-border);
     width: var(--cell-size);
     height: var(--cell-size);
+    background-color: white;
 }
 
 .colored-cell{
@@ -29,6 +32,24 @@
     display: flex;
     flex-direction: column;
 }
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: aquamarine;
+    gap: 40px;
+    padding: 20px;
+    align-items: center;
+}
+
+.side-nav{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: cadetblue;
+}
+
 .button-container{
     display: flex;
     width: 100px;
