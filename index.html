@@ -10,17 +10,22 @@
 <body>
 
     <div>
-        <label >change tail color</label>
+        <label >Change tail color</label>
         <input type="color" class="palette-button"> 
     </div>
-    <div class="slidecontainer">
-        <input type="range" min="16" max="100" value="16" class="slider" >
-        <span class="slide-count">16</span>
+    <div class="slide-container">
+        <label >Change grid size</label>
+        <div class="sub-slide-container">
+            <input type="range" min="16" max="100" value="16" class="slider" >
+            <span class="slide-count">16</span>
+        </div>
     </div>
     
+    <div class="button-container">
         <button class="clear-button" onclick="clearGrid()">clear grid</button>
         <button class="toggle-grid" onclick="toggleGrid()">toggle grid</button>
         <button class="rainbow-button" onclick="toggleRainbow()">Rainbow!</button>
+    </div>
     
     <div class="grid-container">
     </div>

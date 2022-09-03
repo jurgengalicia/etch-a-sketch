@@ -25,3 +25,13 @@
 .colored-cell{
     background-color: var(--cell-color);
 }
+.slide-container{
+    display: flex;
+    flex-direction: column;
+}
+.button-container{
+    display: flex;
+    width: 100px;
+    gap: 4px;
+    flex-direction: column;
+}
