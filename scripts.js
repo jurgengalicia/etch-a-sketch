@@ -64,10 +64,14 @@ function recreateGrid(e){
 }
 
 function changeCellColor(){
+    if(rainbowSwitch)
+        this.style.setProperty("background-color",rainbowList[Math.floor(Math.random() * 10)]);
+    else
     this.classList.add("colored-cell");
 }
 
 function clearCellColor(cell){
+    cell.style.removeProperty("background-color");
     cell.classList.remove("colored-cell");
 }
 
@@ -82,6 +86,7 @@ function toggleRainbow(){
 
 function changeInk(e){
     clearGrid();
+    rainbowSwitch = false;
     rootVars.style.setProperty("--cell-color",e.target.value);
 }
 
