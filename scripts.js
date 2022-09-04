@@ -13,7 +13,10 @@ let gridLock = false;
 let rainbowSwitch = false;
 let gradientSwitch = false;
 
-let rainbowList = ["red","orange","yellow","green","blue","indigo","violet"]
+let rainbowList = ["red","orange","yellow","green","blue","indigo","violet"];
+let currRainbow = 0;
+let gradientList = ["#F8F8FF","#CAC9CD","#9B9A9C","#6D6A6A","#3E3B39","#100C07"];
+let currGradient = 0;
 
 
 function toggleGrid(){
@@ -64,8 +67,15 @@ function recreateGrid(e){
 }
 
 function changeCellColor(){
-    if(rainbowSwitch)
-        this.style.setProperty("background-color",rainbowList[Math.floor(Math.random() * 10)]);
+    if(rainbowSwitch){
+        this.style.setProperty("background-color",rainbowList[currRainbow++]);
+        currRainbow = currRainbow >= 6 ? 0 : currRainbow;
+    }
+    else if(gradientSwitch){
+        this.style.setProperty("background-color",gradientList[currRainbow++]);
+        currRainbow = currRainbow >= 6 ? 0 : currRainbow;
+    }
+        
     else
     this.classList.add("colored-cell");
 }
