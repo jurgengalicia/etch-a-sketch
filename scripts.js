@@ -15,7 +15,7 @@ let gradientSwitch = false;
 
 let rainbowList = ["red","orange","yellow","green","blue","indigo","violet"];
 let currRainbow = 0;
-let gradientList = ["#F8F8FF","#CAC9CD","#9B9A9C","#6D6A6A","#3E3B39","#100C07"];
+let gradientList = ["#FFFFFF","#E6E6E6","#CCCCCC","#B3B3B3","#999999","#808080","#666666","#4D4D4D","#333333","#1a1a1a","#000000"];
 let currGradient = 0;
 
 
@@ -73,7 +73,7 @@ function changeCellColor(){
     }
     else if(gradientSwitch){
         this.style.setProperty("background-color",gradientList[currGradient++]);
-        currGradient = currGradient >= 5 ? 0 : currGradient;
+        currGradient = currGradient >= 10 ? 0 : currGradient;
     } 
     else
     this.classList.add("colored-cell");
