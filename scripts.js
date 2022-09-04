@@ -72,10 +72,9 @@ function changeCellColor(){
         currRainbow = currRainbow >= 6 ? 0 : currRainbow;
     }
     else if(gradientSwitch){
-        this.style.setProperty("background-color",gradientList[currRainbow++]);
-        currRainbow = currRainbow >= 6 ? 0 : currRainbow;
-    }
-        
+        this.style.setProperty("background-color",gradientList[currGradient++]);
+        currGradient = currGradient >= 5 ? 0 : currGradient;
+    } 
     else
     this.classList.add("colored-cell");
 }
@@ -86,6 +85,7 @@ function clearCellColor(cell){
 }
 
 function toggleRainbow(){
+    gradientSwitch = false;
     clearGrid();
     if(!rainbowSwitch)
         rainbowSwitch = true;
@@ -94,6 +94,7 @@ function toggleRainbow(){
 }
 
 function toggleGradient(){
+    rainbowSwitch = false;
     clearGrid();
     if(!gradientSwitch)
         gradientSwitch = true;
@@ -108,8 +109,6 @@ function changeInk(e){
 }
 
 createGrid();
-
-
 
 colorWheel.addEventListener('change',changeInk)
 slider.addEventListener('change',recreateGrid)
