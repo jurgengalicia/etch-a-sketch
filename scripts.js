@@ -81,7 +81,14 @@ function toggleRainbow(){
         rainbowSwitch = true;
     else
         rainbowSwitch = false;
-    
+}
+
+function toggleGradient(){
+    clearGrid();
+    if(!gradientSwitch)
+        gradientSwitch = true;
+    else
+        gradientSwitch = false;
 }
 
 function changeInk(e){
