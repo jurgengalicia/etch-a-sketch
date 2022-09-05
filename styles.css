@@ -61,6 +61,10 @@
 label{
     color: white;
 }
+.button{
+    width: 200px;
+    height: 29px;
+}
 
 .button-container{
     display: flex;
