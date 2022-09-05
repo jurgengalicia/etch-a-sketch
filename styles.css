@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 :root {
@@ -36,7 +37,7 @@
     display: flex;
     justify-content: center;
     height: 100vh;
-    background-color: aquamarine;
+    background-color: black;
     gap: 40px;
     padding: 20px;
     align-items: center;
@@ -45,13 +46,30 @@
 .side-nav{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 20px;
-    background-color: cadetblue;
+    height: 60vh;
+    padding: 10px;
+}
+
+.title-text{
+    text-align: center;
+    font-size: 40px;
+    font-style: bold;
+}
+
+label{
+    color: white;
 }
 
 .button-container{
     display: flex;
     width: 100px;
+    gap: 4px;
+    flex-direction: column;
+}
+.right-container{
+    display: flex;
     gap: 4px;
     flex-direction: column;
 }

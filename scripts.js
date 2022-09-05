@@ -56,7 +56,7 @@ function recreateGrid(e){
     while(gridContainer.firstChild) gridContainer.removeChild(gridContainer.lastChild)
 
     let newSize = e.target.value;
-    slideNum.textContent = newSize;
+    slideNum.textContent = `${newSize} x ${newSize}`;
 
     if(newSize > 60 && gridVisible) toggleGrid();
     gridLock = newSize > 60 ? true : false;

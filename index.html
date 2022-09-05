@@ -5,34 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>etch-a-sketch</title>
 </head>
 <body>
 
     <div class="main-container">
         <div class="side-nav">
             <div>
-                <label >Change tail color</label>
+                <label>Change tail color</label>
                 <input type="color" class="palette-button"> 
             </div>
             <div class="slide-container">
-                <label >Change grid size</label>
+                <label>Change grid size</label>
                 <div class="sub-slide-container">
                     <input type="range" min="16" max="100" value="16" class="slider" >
-                    <span class="slide-count">16</span>
+                    <label class="slide-count">16 x 16</label>
                 </div>
             </div>
             
             <div class="button-container">
-                <button class="clear-button" onclick="clearGrid()">clear grid</button>
-                <button class="toggle-grid" onclick="toggleGrid()">toggle grid</button>
-                <button class="rainbow-button" onclick="toggleRainbow()">Rainbow!</button>
-                <button class="gradient-button" onclick="toggleGradient()">Gradient</button>
+                <button class="clear-button button" onclick="clearGrid()">clear grid</button>
+                <button class="toggle-grid button" onclick="toggleGrid()">toggle grid</button>
+                <button class="rainbow-button button" onclick="toggleRainbow()">Rainbow!</button>
+                <button class="gradient-button button" onclick="toggleGradient()">Gradient</button>
+            </div>
+        </div>
+        <div class="right-container">
+            <label class="title-text">Etch-A-Sketch</label>
+            <div class="grid-container">
             </div>
         </div>
         
-        <div class="grid-container">
-        </div>
     </div>
     
     <script src="scripts.js"></script>
