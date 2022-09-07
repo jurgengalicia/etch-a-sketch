@@ -64,6 +64,8 @@ label{
 .button{
     width: 200px;
     height: 29px;
+    border: 1px white solid;
+    color: black;
 }
 
 .button-container{
