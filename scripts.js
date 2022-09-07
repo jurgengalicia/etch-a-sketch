@@ -36,8 +36,8 @@ function createGrid(side=16){
         let cell = document.createElement('div');
         cell.classList.add("cell");
         cell.textContent = "";
+        cell.addEventListener('mouseover',changeCellColor);
         gridContainer.appendChild(cell);
-        cell.addEventListener('mouseover',changeCellColor)
     }
     cells = document.querySelectorAll('.cell');
 }
@@ -66,17 +66,20 @@ function recreateGrid(e){
     
 }
 
-function changeCellColor(){
-    if(rainbowSwitch){
-        this.style.setProperty("background-color",rainbowList[currRainbow++]);
-        currRainbow = currRainbow >= 6 ? 0 : currRainbow;
+function changeCellColor(e){
+    if(e.buttons == 1 || e.buttons == 3){
+        if(rainbowSwitch){
+            this.style.setProperty("background-color",rainbowList[currRainbow++]);
+            currRainbow = currRainbow >= 6 ? 0 : currRainbow;
+        }
+        else if(gradientSwitch){
+            this.style.setProperty("background-color",gradientList[currGradient++]);
+            currGradient = currGradient >= 10 ? 0 : currGradient;
+        } 
+        else
+        this.classList.add("colored-cell");
     }
-    else if(gradientSwitch){
-        this.style.setProperty("background-color",gradientList[currGradient++]);
-        currGradient = currGradient >= 10 ? 0 : currGradient;
-    } 
-    else
-    this.classList.add("colored-cell");
+        
 }
 
 function clearCellColor(cell){
