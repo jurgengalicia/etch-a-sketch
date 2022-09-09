@@ -6,7 +6,6 @@
 }
 
 :root {
-    --cell-color: black;
     --cell-border: 1px solid black;
     --cell-size: 6.25%;
   }
@@ -25,9 +24,6 @@
     background-color: white;
 }
 
-.colored-cell{
-    background-color: var(--cell-color);
-}
 .slide-container{
     display: flex;
     flex-direction: column;
@@ -72,7 +68,8 @@ label{
     color: white;
     background-color: black;
     border: white 1px solid;
-    width: 160px;
+    width: 170px;
+    white-space: nowrap;
     border-radius: 10px;
     text-decoration: none;
 }

@@ -13,6 +13,9 @@ let gridVisible = true;
 let gridLock = false;
 let rainbowSwitch = false;
 let gradientSwitch = false;
+let eraserToggle = false;
+
+let chosenColor = "black"
 
 let rainbowList = ["red","orange","yellow","green","blue","indigo","violet"];
 let currRainbow = 0;
@@ -68,29 +71,29 @@ function recreateGrid(e){
 }
 
 function changeCellColor(e){
-    if(e.buttons == 1 || e.buttons == 3){
+    //removed button hold down functionality
+    // if(e.buttons == 1 || e.buttons == 3)
         if(rainbowSwitch){
             this.style.setProperty("background-color",rainbowList[currRainbow++]);
             currRainbow = currRainbow >= 6 ? 0 : currRainbow;
-        }
-        else if(gradientSwitch){
+        }else if(gradientSwitch){
             this.style.setProperty("background-color",gradientList[currGradient++]);
             currGradient = currGradient >= 10 ? 0 : currGradient;
-        } 
+        }else if(eraserToggle)
+            clearCellColor(this);
         else
-        this.classList.add("colored-cell");
-    }
+            this.style.setProperty("background-color",chosenColor);
+    
         
 }
 
 function clearCellColor(cell){
     cell.style.removeProperty("background-color");
-    cell.classList.remove("colored-cell");
 }
 
 function toggleRainbow(){
     gradientSwitch = false;
-    clearGrid();
+    eraserToggle = false
     if(!rainbowSwitch)
         rainbowSwitch = true;
     else
@@ -99,24 +102,44 @@ function toggleRainbow(){
 
 function toggleGradient(){
     rainbowSwitch = false;
-    clearGrid();
+    eraserToggle = false
     if(!gradientSwitch)
         gradientSwitch = true;
     else
         gradientSwitch = false;
 }
 
-function changeInk(e){
-    clearGrid();
+function eraserMode(){
+    gradientSwitch = false;
     rainbowSwitch = false;
-    rootVars.style.setProperty("--cell-color",e.target.value);
+    if(!eraserToggle){
+        eraserToggle = true;
+    }
+    else
+        eraserToggle = false;
+}
+
+function changeInk(e){
+    rainbowSwitch = false;
+    gradientSwitch = false;
+    eraserToggle = false;
+    clearActiveButtons();
+    chosenColor = e.target.value
+}
+
+function clearActiveButtons(){
+    allButtons.forEach((btn) => {
+        //remove other active buttons when clicked, except for grid toggle.
+        if(!btn.classList.contains("toggle-grid"))
+            btn.classList.remove("active-button");
+    })
 }
 
 function clickButton(){
     //remove active button if it is clicked
     if(this.classList.contains("active-button"))
         this.classList.remove("active-button");
-        
+
     //toggle grid does not affect other buttons
     else if(this.classList.contains("toggle-grid"))
         this.classList.add("active-button");
@@ -124,11 +147,7 @@ function clickButton(){
     //all buttons except clear button can be active
     else if(!this.classList.contains("clear-button")){
 
-        allButtons.forEach((btn) => {
-            //remove other active buttons when clicked, except for grid toggle.
-            if(!btn.classList.contains("toggle-grid"))
-                btn.classList.remove("active-button");
-        })
+        clearActiveButtons();
 
         //apply active button to this
         this.classList.add("active-button");
