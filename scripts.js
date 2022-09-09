@@ -6,6 +6,7 @@ let rootVars = document.querySelector(':root');
 let slider = document.querySelector('.slider');
 let rainbowButton = document.querySelector('.rainbow-button');
 let slideNum = document.querySelector('.slide-count');
+let allButtons = document.querySelectorAll('.button');
 let cells = "";
 
 let gridVisible = true;
@@ -110,6 +111,35 @@ function changeInk(e){
     rainbowSwitch = false;
     rootVars.style.setProperty("--cell-color",e.target.value);
 }
+
+function clickButton(){
+    //remove active button if it is clicked
+    if(this.classList.contains("active-button"))
+        this.classList.remove("active-button");
+        
+    //toggle grid does not affect other buttons
+    else if(this.classList.contains("toggle-grid"))
+        this.classList.add("active-button");
+
+    //all buttons except clear button can be active
+    else if(!this.classList.contains("clear-button")){
+
+        allButtons.forEach((btn) => {
+            //remove other active buttons when clicked, except for grid toggle.
+            if(!btn.classList.contains("toggle-grid"))
+                btn.classList.remove("active-button");
+        })
+
+        //apply active button to this
+        this.classList.add("active-button");
+    }
+    
+}
+
+allButtons.forEach((btn) => {
+    btn.addEventListener('click', clickButton);
+})
+
 
 createGrid();
 
