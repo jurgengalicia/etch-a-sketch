@@ -71,7 +71,7 @@ function recreateGrid(e){
 }
 
 function changeCellColor(e){
-    //removed button hold down functionality
+    //removed button hold down functionality for unresponsiveness
     // if(e.buttons == 1 || e.buttons == 3)
         if(rainbowSwitch){
             this.style.setProperty("background-color",rainbowList[currRainbow++]);
