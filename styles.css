@@ -8,7 +8,9 @@
 :root {
     --cell-border: 1px solid black;
     --cell-size: 6.25%;
-  }
+}
+
+
 
 
 .grid-container{
